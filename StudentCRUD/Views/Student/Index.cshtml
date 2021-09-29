@@ -1,0 +1,59 @@
+﻿@model IEnumerable<StudentCRUD.Models.student>
+@using StudentCRUD.Models
+@{
+    Layout = null;
+}
+<div class="container">
+    <h2>List Of All Students</h2>
+    @Html.ActionLink("Insert New", "Create")
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <table class="table table-light table-active table-responsive-md" border="1">
+        <thead>
+            <tr>
+                <th>RollNo</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+
+        {
+            using (Html.BeginForm("Delete", "Student", new { rollno = item.RollNo }))
+            {
+
+
+                <tr>
+
+                    <td>@item.RollNo</td>
+                    <td>@item.Name</td>
+                    <td>@item.Address</td>
+                    <td>@item.Mobile</td>
+                    <td>@item.Email</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { rollno = item.RollNo }) |
+                        @Html.ActionLink("Details", "Details1", new { rollno = item.RollNo })
+                        @*@Html.ActionLink("Delete", "Delete", new { rollno = item.RollNo }, new { onclick = "return confirm('Are sure wants to delete?');" }) *@
+
+                        @*@using (Html.BeginForm("Edit", "Student", new { rollno = item.RollNo }))
+                            {
+
+                            <input type="button" value="Edit" />
+                            }*@
+
+                        <input type="submit" value="Delete" class="btn-danger"
+                               onclick="return confirm('Are sure wants to delete?');" />
+
+                    </td>
+                </tr>
+            }
+        }
+
+
+    </table>
+</div>

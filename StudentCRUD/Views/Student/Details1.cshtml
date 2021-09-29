@@ -1,0 +1,70 @@
+﻿@model StudentCRUD.Models.student
+
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Details1</title>
+    </head>
+    <body>
+        <div>
+            <h4>student Details</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.RollNo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RollNo)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Mobile)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Mobile)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+            </dl>
+        </div>
+
+        @*@Html.DisplayForModel()*@   @*get all the model properties and its values*@
+
+        @*@Html.Display("student")  It is will get all the data with view bag it is used when template is not stromgly typed*@
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { rollno = Model.RollNo }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </body>
+</html>
+</div>
